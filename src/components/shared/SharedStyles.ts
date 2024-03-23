@@ -51,6 +51,7 @@ export const DataContainer = styled.div`
     background-color: #fff;
     border-radius: 20px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-bottom: 40px;
 `;
 
 export const Title = styled.p<TextProps>`
@@ -80,13 +81,17 @@ export const Title = styled.p<TextProps>`
     }
 `;
 
-export const Text = styled.p`
+export const Text = styled.p<TextProps>`
     color: #353535;
     text-align: center;
     font-family: Inter;
     font-size: 18px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: ${props =>
+        props.bold
+          ? '700'
+          : '400'
+    };
     line-height: normal;
     margin: 0;
 
@@ -183,5 +188,13 @@ export const Icon = styled.img`
 
 export const Row = styled.div`
     display: flex;
+    align-items: center;
+`;
+
+export const Column = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
     align-items: center;
 `;

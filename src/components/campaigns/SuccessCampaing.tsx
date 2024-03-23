@@ -12,7 +12,7 @@ const SuccessCampaing = () => {
     <DataContainer>
         <Logo src={success} alt="Ok"/>
         <Title spaceBottom={true} big={true}>¡Listo!</Title>
-        <Title spaceBottom={true}>La campaña fue generada con éxito</Title>
+        <Title spaceBottom={true}>Operación realizada con éxito</Title>
         <Btn>Aceptar</Btn>
     </DataContainer>
     <Footer></Footer>
