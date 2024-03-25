@@ -23,3 +23,18 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+/* Estilos del modal de detalle de clientes */
+
+div:where(.swal2-container) .swal2-html-container {
+  text-align: left!important;
+}
+
+div:where(.swal2-container) .swal2-html-container p {
+  margin: 5px 0;
+}
+
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+  border-radius: 20px!important;
+  background-color: #00B8E0!important;
+}

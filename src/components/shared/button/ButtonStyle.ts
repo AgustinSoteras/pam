@@ -8,7 +8,7 @@ type ButtonProps = {
 export const Btn = styled.button<ButtonProps>`
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
     display: flex;
-    height: 46px;
+    height: 38px;
     padding: 8px 16px;
     justify-content: center;
     align-items: center;

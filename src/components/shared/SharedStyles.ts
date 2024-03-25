@@ -7,6 +7,11 @@ type TextProps = {
     big?: boolean;
 }
 
+type ContainerProps = {
+    end?: boolean;
+    fullWidth?: boolean;
+}
+
 export const HeaderContainer = styled.div`
     height: 120px;
     display: flex;
@@ -39,14 +44,18 @@ export const Banner = styled.img`
   margin-bottom: 5%;
 `;
 
-export const DataContainer = styled.div`
+export const DataContainer = styled.div<ContainerProps>`
     display: flex;
     padding: 32px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 32px;
-    width: 40%;
+    width:  ${props =>
+        props.fullWidth
+          ? '80%'
+          : '40%'
+        };
     height: auto;
     background-color: #fff;
     border-radius: 20px;
@@ -60,7 +69,7 @@ export const Title = styled.p<TextProps>`
     font-family: Inter;
     font-size: ${props =>
         props.big
-          ? '24px'
+          ? '36px'
           : '18px'
         };
     font-style: normal;
@@ -186,15 +195,31 @@ export const Icon = styled.img`
   cursor: pointer;
 `;
 
+export const Isotype = styled.img`
+  width: auto;
+  height: 40px;
+  margin-bottom: -30px 
+`;
+
 export const Row = styled.div`
     display: flex;
     align-items: center;
 `;
 
-export const Column = styled.div`
+export const End = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+`;
+
+export const Column = styled.div<ContainerProps>`
     display: flex;
     flex-direction: column;
     width: 100%;
     justify-content: center;
-    align-items: center;
+    align-items: ${props =>
+        props.end
+          ? 'flex-end'
+          : 'center'};
 `;

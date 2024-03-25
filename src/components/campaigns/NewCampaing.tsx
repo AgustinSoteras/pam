@@ -14,8 +14,15 @@ import Header from '../shared/Header'
 import Footer from '../shared/Footer'
 import { Btn } from '../shared/button/ButtonStyle'
 import { add } from '../../assets'
+import { useNavigate } from "react-router-dom";
 
 const NewCampaing = () => {
+  const navigate = useNavigate();
+
+  const aproveButton = () => {
+    navigate("/operacion-exitosa");
+  };
+
   return (
     <>
     <Header></Header>
@@ -48,7 +55,7 @@ const NewCampaing = () => {
         <Input type="file"></Input>
         <Label tiny={true}>Hasta 100 MB en .jpg, .jpeg o .png</Label>
       </InputContainer>
-      <Btn>Guardar</Btn>
+      <Btn onClick={aproveButton}>Guardar</Btn>
     </DataContainer>
     <Footer></Footer>
   </>

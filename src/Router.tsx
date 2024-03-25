@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './components/login/Login';
 import Campaings from './components/campaigns/Campaings';
 import NewCampaing from './components/campaigns/NewCampaing';
-import SuccessCampaing from './components/campaigns/SuccessCampaing';
+import SuccessCampaing from './components/shared/Success';
+import Decline from './components/shared/Decline';
 
 const RouterApp = () => {
   return (
@@ -12,7 +13,8 @@ const RouterApp = () => {
             <Route path="/" element={<Login/>} />
             <Route path="/campañas" element={<Campaings/>} />
             <Route path="/nueva-campaña" element={<NewCampaing/>} />
-            <Route path="/campaña-creada" element={<SuccessCampaing/>} />
+            <Route path="/operacion-exitosa" element={<SuccessCampaing/>} />
+            <Route path="/operacion-rechazada" element={<Decline/>} />
         </Routes>
     </Router>
   )
