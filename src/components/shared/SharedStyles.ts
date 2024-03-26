@@ -5,6 +5,7 @@ type TextProps = {
     tiny?: boolean;
     spaceBottom?: boolean;
     big?: boolean;
+    margin0?: boolean;
 }
 
 type ContainerProps = {
@@ -14,6 +15,10 @@ type ContainerProps = {
 
 type ErrorProps = {
     isError?: boolean;
+}
+
+type InputProps = {
+    margin0?: boolean;
 }
 
 export const HeaderContainer = styled.div`
@@ -126,7 +131,10 @@ export const Label = styled.p<TextProps>`
           ? '700'
           : '400'};
     line-height: normal;
-    margin-bottom: 8px;
+    margin-bottom: ${props =>
+        props.margin0
+          ? '0'
+          : '8px'};
     margin-top: ${props =>
         props.tiny
           ? '8px'
@@ -154,6 +162,13 @@ export const TextSecondary = styled.p`
     }
 `;
 
+export const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+`;
+
 export const ErrorText = styled.p<ErrorProps>`
     color: #FF7970;
     font-size: 16px;
@@ -163,7 +178,7 @@ export const ErrorText = styled.p<ErrorProps>`
     display: ${props =>
         props.isError
           ? 'block'
-          : 'none'};;
+          : 'none'};
 
     @media (max-width: 70rem) {
         font-size: 14px;
@@ -172,20 +187,20 @@ export const ErrorText = styled.p<ErrorProps>`
 
 export const Input = styled.input`
     display: flex;
-    height: 28px;
+    height: 20px;
     padding: 8px 16px;
     justify-content: space-between;
     align-items: center;
     align-self: stretch;
     border-radius: 20px;
-    border: '1px solid #D9D9D9';
+    border: 1px solid #D9D9D9;
     background: #FFF;
     color: #353535;
 `;
 
 export const Select = styled.select`
     display: flex;
-    height: 46px;
+    height: 38px;
     padding: 8px 16px;
     justify-content: space-between;
     align-items: center;
@@ -195,12 +210,16 @@ export const Select = styled.select`
     background: #FFF;
 `;
 
-export const InputContainer = styled.div`
+export const InputContainer = styled.div<InputProps>`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     width: 100%;
     height: auto;
+    margin-bottom: ${props =>
+        props.margin0
+          ? '0'
+          : '20px'};
 `;
 
 export const Logo = styled.img`
@@ -219,7 +238,7 @@ export const Icon = styled.img`
 export const Isotype = styled.img`
   width: auto;
   height: 40px;
-  margin-bottom: -40px 
+  margin-bottom: -35px 
 `;
 
 export const Row = styled.div`

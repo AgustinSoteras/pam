@@ -139,8 +139,8 @@ export const Pill = styled.span<PillProps>`
     if (props.status === "Generada") return '#DBEEFF';
     if (props.status === "Pendiente de emisión") return '#FFFA78';
     if (props.status === "Rechazada") return '#FF7970';
-    if (props.status === "Clientes listados") return '#93E396';
-    return '#ABABAB';
+    if (props.status === "Clientes listados") return '#bc93e3';
+    return '#93E396';
      }};
     font-family: Inter;
     font-size: 14px;
@@ -149,8 +149,8 @@ export const Pill = styled.span<PillProps>`
     if (props.status === "Generada") return '#0F3063';
     if (props.status === "Pendiente de emisión") return '#807c15';
     if (props.status === "Rechazada") return '#94271f';
-    if (props.status === "Clientes listados") return '#133f14';
-    return '#353535';
+    if (props.status === "Clientes listados") return '#28133f';
+    return '#133f14';
     }};
     padding: 2px 12px;
     font-weight: 700;

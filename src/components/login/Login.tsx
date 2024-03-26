@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { DataContainer, Input, InputContainer, Label, End, Isotype, ErrorText } from '../shared/SharedStyles'
+import { DataContainer, Input, InputContainer, Label, End, Isotype, ErrorText, Title } from '../shared/SharedStyles'
 import Header from '../shared/Header'
 import Footer from '../shared/Footer'
 import { Btn } from '../shared/button/ButtonStyle'
@@ -34,11 +34,12 @@ const Login = () => {
   return (
     <>
       <Header/>
+      <Title>Iniciar sesión</Title>
       <DataContainer>
         <End>
           <Isotype src={isotipo}/>
         </End>
-        <InputContainer>
+        <InputContainer margin0={true}>
           <Label>Email o usuario</Label>
           <Input
             type="text"
@@ -46,7 +47,7 @@ const Login = () => {
             onChange={handleEmailChange}>
         </Input>
         </InputContainer>
-        <InputContainer>
+        <InputContainer margin0={true}>
           <Label>Contraseña</Label>
           <Input
               type="text"

@@ -23,16 +23,29 @@ const Campaings = () => {
   const [campaings, setCampaings] = useState(true) // ¿hay campañas para ver?
   const [isOpen, setIsOpen] = useState(false);
   const [showClients, setShowClients] = useState(false);
-  const [campaingStatus, setCampaingStatus] = useState(["Generada", "Clientes listados","Pendiente de emisión","Rechazada"])
+  const [campaingStatus, setCampaingStatus] = useState("Generada")
 
+  const mockStatus = ["Generada", "Clientes listados","Pendiente de emisión","Rechazada", "Aprobada"];
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+ 
   const navigate = useNavigate();
 
   const aproveButton = () => {
     navigate("/operacion-exitosa");
+    setCampaingStatus(mockStatus[4])
+    scrollToTop()
   };
 
   const declineButton = () => {
     navigate("/operacion-rechazada");
+    setCampaingStatus(mockStatus[3])
+    scrollToTop()
   };
 
   const editButton = () => {
@@ -59,7 +72,7 @@ const Campaings = () => {
             <CampaingCard>
               <TextCampaing bold={true}>Campaña 1</TextCampaing>
               <Row>
-                <Pill onClick={toggleClientList} status={campaingStatus[1]}>{campaingStatus[1]}</Pill>
+                <Pill onClick={toggleClientList} status={campaingStatus}>{campaingStatus}</Pill>
                 <Icon src={arrow} alt=">" onClick={toggleDropdown}/>
               </Row>
             </CampaingCard>
@@ -98,13 +111,16 @@ const Campaings = () => {
             )}
             </DropContainer>
           </DataContainer>
+          <Row onClick={editButton}>
+            <Icon src={add} alt="+"/>
+            <TextSecondary>Generar nueva campaña</TextSecondary>
+          </Row>
         </Column>
         <ClientContainer show={showClients}>
               <ClientList/>
         </ClientContainer>
       </CampaingContainer>
-    : 
-    // vista que muestra si aun no existen campañas
+    : // vista que muestra si aun no existen campañas
       <DataContainer>
         <Text>No tenés una campaña activa, seleccioná el botón + para generar una nueva</Text>
         <Row onClick={editButton}>
