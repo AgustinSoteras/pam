@@ -12,6 +12,10 @@ type ContainerProps = {
     fullWidth?: boolean;
 }
 
+type ErrorProps = {
+    isError?: boolean;
+}
+
 export const HeaderContainer = styled.div`
     height: 120px;
     display: flex;
@@ -19,7 +23,7 @@ export const HeaderContainer = styled.div`
     align-items: center;
     background-color: #fff;
     width: 100%;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
 `
 
 export const FooterContainer = styled.div`
@@ -70,7 +74,7 @@ export const Title = styled.p<TextProps>`
     font-size: ${props =>
         props.big
           ? '36px'
-          : '18px'
+          : '24px'
         };
     font-style: normal;
     font-weight: 700;
@@ -142,12 +146,27 @@ export const TextSecondary = styled.p`
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
-    line-height: normal;
     margin: 0;
     cursor: pointer;
 
     @media (max-width: 70rem) {
         font-size: 12px;
+    }
+`;
+
+export const ErrorText = styled.p<ErrorProps>`
+    color: #FF7970;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    margin: 0;
+    display: ${props =>
+        props.isError
+          ? 'block'
+          : 'none'};;
+
+    @media (max-width: 70rem) {
+        font-size: 14px;
     }
 `;
 
@@ -159,8 +178,9 @@ export const Input = styled.input`
     align-items: center;
     align-self: stretch;
     border-radius: 20px;
-    border: 1px solid #D9D9D9;
+    border: '1px solid #D9D9D9';
     background: #FFF;
+    color: #353535;
 `;
 
 export const Select = styled.select`
@@ -186,6 +206,7 @@ export const InputContainer = styled.div`
 export const Logo = styled.img`
   width: auto;
   height: 60px;
+  cursor: pointer;
 `;
 
 export const Icon = styled.img`
@@ -198,7 +219,7 @@ export const Icon = styled.img`
 export const Isotype = styled.img`
   width: auto;
   height: 40px;
-  margin-bottom: -30px 
+  margin-bottom: -40px 
 `;
 
 export const Row = styled.div`

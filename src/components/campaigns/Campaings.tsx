@@ -7,7 +7,17 @@ import { add, arrow } from '../../assets'
 import { useNavigate } from "react-router-dom";
 import ClientList from './ClientList'
 import { campaingDataMock } from '../../mocks/CampaingDatamock'
-import { CampaingCard, Pill, ClientContainer, CampaingContainer, TextCampaing, DropContainer, Description, DropItem, BtnContainer } from './CampaingStyles'
+import { 
+  CampaingCard,
+  Pill, 
+  ClientContainer, 
+  CampaingContainer, 
+  TextCampaing, 
+  DropContainer, 
+  Description, 
+  DropItem, 
+  BtnContainer 
+} from './CampaingStyles'
 
 const Campaings = () => {
   const [campaings, setCampaings] = useState(true) // ¿hay campañas para ver?
@@ -74,7 +84,7 @@ const Campaings = () => {
             <CampaingCard>
               <TextCampaing bold={true}>Campaña 1</TextCampaing>
               <Row>
-                  <Pill>Generada</Pill>
+                  <Pill status='Generada'>Generada</Pill>
                   <Icon src={arrow} alt=">" onClick={toggleDropdown}/>
               </Row>
             </CampaingCard>
@@ -97,7 +107,7 @@ const Campaings = () => {
     // vista que muestra si aun no existen campañas
       <DataContainer>
         <Text>No tenés una campaña activa, seleccioná el botón + para generar una nueva</Text>
-        <Row>
+        <Row onClick={editButton}>
             <Icon src={add} alt="+"/>
             <TextSecondary>Generar nueva campaña</TextSecondary>
         </Row>

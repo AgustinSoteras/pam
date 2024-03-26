@@ -1,11 +1,18 @@
 import React from 'react'
 import { HeaderContainer, Logo } from './SharedStyles'
 import { headerLogo } from '../../assets'
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  const backHome = () => {
+    navigate("/");
+  };
+
   return (
     <HeaderContainer>
-        <Logo src={headerLogo} alt="Banco Formosa"/>
+        <Logo src={headerLogo} onClick={backHome} alt="Banco Formosa"/>
     </HeaderContainer>
   )
 }

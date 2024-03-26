@@ -1,10 +1,6 @@
 import React from 'react'
 import { DataContainer, 
         Title, 
-        Text, 
-        TextSecondary, 
-        Icon, 
-        Row, 
         Input, 
         InputContainer, 
         Label, 
@@ -13,7 +9,6 @@ import { DataContainer,
 import Header from '../shared/Header'
 import Footer from '../shared/Footer'
 import { Btn } from '../shared/button/ButtonStyle'
-import { add } from '../../assets'
 import { useNavigate } from "react-router-dom";
 
 const NewCampaing = () => {
