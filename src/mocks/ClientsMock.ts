@@ -33,7 +33,7 @@ export const clientsMock = [
       {
         name: "Tiziano",
         lastname: "Guzman",
-        dniNumber: "123456789",
+        dniNumber: "223456789",
         bantotalAccount: "BT123456",
         dateOfBirth: "1990-01-01",
         maritalStatus: "Single",
@@ -63,7 +63,7 @@ export const clientsMock = [
       {
         name: "Peggy",
         lastname: "Larsen",
-        dniNumber: "123456789",
+        dniNumber: "323456789",
         bantotalAccount: "BT123456",
         dateOfBirth: "1990-01-01",
         maritalStatus: "Single",

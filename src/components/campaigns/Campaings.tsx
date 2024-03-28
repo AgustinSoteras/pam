@@ -67,7 +67,7 @@ const Campaings = () => {
       {campaings?
       <CampaingContainer>
         <Column>
-          <DataContainer fullWidth={showClients}>
+          <DataContainer>
             <Text bold={true}>Campaña activa</Text>
             <CampaingCard>
               <TextCampaing bold={true}>Campaña 1</TextCampaing>
@@ -92,7 +92,11 @@ const Campaings = () => {
             </DropContainer>
           </DataContainer>
 
-          <DataContainer fullWidth={showClients}>
+          <ClientContainer show={showClients}>
+              <ClientList/>
+          </ClientContainer>
+
+          <DataContainer>
           <Text bold={true}>Últimas campañas</Text>
             <CampaingCard>
               <TextCampaing bold={true}>Campaña 1</TextCampaing>
@@ -116,9 +120,6 @@ const Campaings = () => {
             <TextSecondary>Generar nueva campaña</TextSecondary>
           </Row>
         </Column>
-        <ClientContainer show={showClients}>
-              <ClientList/>
-        </ClientContainer>
       </CampaingContainer>
     : // vista que muestra si aun no existen campañas
       <DataContainer>

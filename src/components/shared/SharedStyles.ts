@@ -8,11 +8,6 @@ type TextProps = {
     margin0?: boolean;
 }
 
-type ContainerProps = {
-    end?: boolean;
-    fullWidth?: boolean;
-}
-
 type ErrorProps = {
     isError?: boolean;
 }
@@ -53,18 +48,14 @@ export const Banner = styled.img`
   margin-bottom: 5%;
 `;
 
-export const DataContainer = styled.div<ContainerProps>`
+export const DataContainer = styled.div`
     display: flex;
     padding: 32px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 32px;
-    width:  ${props =>
-        props.fullWidth
-          ? '80%'
-          : '40%'
-        };
+    width:  50%;
     height: auto;
     background-color: #fff;
     border-radius: 20px;
@@ -253,13 +244,10 @@ export const End = styled.div`
     width: 100%;
 `;
 
-export const Column = styled.div<ContainerProps>`
+export const Column = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
     justify-content: center;
-    align-items: ${props =>
-        props.end
-          ? 'flex-end'
-          : 'center'};
+    align-items: center;
 `;
