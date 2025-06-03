@@ -1,6 +1,6 @@
 import React from 'react'
-import { FooterContainer } from './SharedStyles'
-import { Banner, LogoFoot } from './SharedStyles'
+import { FooterContainer } from '../../GlobalStyles'
+import { Banner, LogoFoot } from '../../GlobalStyles'
 import { banner, footerLogo } from '../../assets'
 
 const Footer = () => {

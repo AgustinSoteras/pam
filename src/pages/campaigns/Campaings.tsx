@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
-import { DataContainer, Title, Text, TextSecondary, Icon, Row, Column  } from '../shared/SharedStyles'
-import Header from '../shared/Header'
-import Footer from '../shared/Footer'
-import { Btn } from '../shared/button/ButtonStyle'
+import { DataContainer, Title, Text, TextSecondary, Icon, Row, Column  } from '../../GlobalStyles'
+import Header from '../../components/header/Header'
+import Footer from '../../components/footer/Footer'
+import { Btn } from '../../components/button/ButtonStyle'
 import { add, arrow } from '../../assets'
 import { useNavigate } from "react-router-dom";
 import ClientList from './ClientList'

@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
-import { DataContainer, Input, InputContainer, Label, End, Isotype, ErrorText, Title } from '../shared/SharedStyles'
-import Header from '../shared/Header'
-import Footer from '../shared/Footer'
-import { Btn } from '../shared/button/ButtonStyle'
+import { DataContainer, Input, InputContainer, Label, End, Isotype, ErrorText, Title } from '../../GlobalStyles'
+import Header from '../../components/header/Header';
+import Footer from '../../components/footer/Footer';
+import { Btn } from '../../components/button/ButtonStyle'
 import { useNavigate } from "react-router-dom";
 import { isotipo } from '../../assets'
 
