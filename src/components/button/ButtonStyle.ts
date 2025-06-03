@@ -16,22 +16,22 @@ export const Btn = styled.button<ButtonProps>`
     flex-shrink: 0;
     border: ${props =>
             props.secondary
-            ? '1px solid #00B8E0!important'
+            ? '1px solid #0F3063!important'
             : 'none'};
     align-self: stretch;
     color: ${props =>
             props.secondary
-            ? '#00B8E0'
+            ? '#0F3063'
             : '#FFFFFF'};
     border-radius: 20px;
     background: ${props =>
         props.disabled
           ? '#DDDDDD'
-          : '#00B8E0'};
+          : '#0F3063'};
     background-color: ${props =>
             props.secondary
             ? '#FFFFFF'
-            : '#00B8E0'};
+            : '#0F3063'};
     font-size: 18px;
     border: none;
     cursor: ${props =>
@@ -45,10 +45,7 @@ export const Btn = styled.button<ButtonProps>`
             : '0'};
 
     &:hover {
-        background-color: ${props =>
-            props.secondary
-            ? '#F1F1F1F1'
-            : '#00B0E0'};
+        filter: ${props => props.secondary ? 'brightness(0.9)'  : 'brightness(1.1)'};
     }
 
     @media (max-width: 70rem) {

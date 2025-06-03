@@ -21,7 +21,7 @@ import {
 
 const Campaings = () => {
   const [campaings, setCampaings] = useState(true) // ¿hay campañas para ver?
-  const [isOpen, setIsOpen] = useState(false);
+  const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
   const [showClients, setShowClients] = useState(false);
   const [campaingStatus, setCampaingStatus] = useState("Generada")
 
@@ -52,8 +52,8 @@ const Campaings = () => {
     navigate("/nueva-campaña");
   };
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
+  const toggleDropdown = (index) => {
+    setOpenDropdownIndex(prev => prev === index ? null : index);
   };
 
   const toggleClientList = () => {
@@ -64,7 +64,7 @@ const Campaings = () => {
     <>
       <Header/>
       <Title big={true}>Mis campañas</Title>
-      {campaings?
+      { campaings ?
       <CampaingContainer>
         <Column>
           <DataContainer>
@@ -73,10 +73,10 @@ const Campaings = () => {
               <TextCampaing bold={true}>Campaña 1</TextCampaing>
               <Row>
                 <Pill onClick={toggleClientList} status={campaingStatus}>{campaingStatus}</Pill>
-                <Icon src={arrow} alt=">" onClick={toggleDropdown}/>
+                <Icon src={arrow} alt=">" onClick={() => toggleDropdown(0)}/>
               </Row>
             </CampaingCard>
-            <DropContainer show={isOpen}>
+            <DropContainer show={openDropdownIndex === 0}>
             {
             campaingDataMock.map((item, index)=>
               <DropItem key={index}>
@@ -84,7 +84,7 @@ const Campaings = () => {
                 <Description>{item.value}</Description>
               </DropItem>
             )}
-              <BtnContainer show={isOpen}>
+              <BtnContainer>
                 <Btn onClick={aproveButton}>Aprobar</Btn>
                 <Btn secondary={true} onClick={declineButton}>Rechazar</Btn>
                 <Btn secondary={true} onClick={editButton}>Modificar</Btn>
@@ -102,10 +102,10 @@ const Campaings = () => {
               <TextCampaing bold={true}>Campaña 1</TextCampaing>
               <Row>
                   <Pill status='Generada'>Generada</Pill>
-                  <Icon src={arrow} alt=">" onClick={toggleDropdown}/>
+                  <Icon src={arrow} alt=">" onClick={() => toggleDropdown(1)}/>
               </Row>
             </CampaingCard>
-            <DropContainer show={isOpen}>
+            <DropContainer show={openDropdownIndex === 1}>
             {
             campaingDataMock.map((item, index)=>
               <DropItem key={index}>

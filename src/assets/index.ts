@@ -1,7 +1,7 @@
 export { default as headerLogo } from '../assets/formosa.png'
 export { default as banner } from '../assets/banner.png'
 export { default as footerLogo } from '../assets/logoFormosa.png'
-export { default as add } from '../assets/add.png'
+export { default as add } from '../assets/add.svg'
 export { default as success } from '../assets/success.png'
 export { default as arrow } from '../assets/arrow.svg'
 export { default as decline } from '../assets/decline.png'

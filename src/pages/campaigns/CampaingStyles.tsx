@@ -99,11 +99,7 @@ export const DropContainer = styled.div<ShowProps>`
 `;
 
 export const BtnContainer = styled.div<ShowProps>`
-    display: ${props =>
-        props.show
-          ? 'flex'
-          : 'none'
-    };
+    display: flex;
     flex-direction: column;
     width: 100%;
     justify-content: center;

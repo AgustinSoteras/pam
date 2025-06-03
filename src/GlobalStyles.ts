@@ -67,19 +67,11 @@ export const Title = styled.p<TextProps>`
     color: #353535;
     text-align: center;
     font-family: Inter;
-    font-size: ${props =>
-        props.big
-          ? '36px'
-          : '24px'
-        };
+    font-size: ${props =>  props.big  ? '36px'  : '24px' };
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin-top: 0;
-    margin-bottom: ${props =>
-        props.spaceBottom
-          ? '0px'
-          : '32px'};
+    margin: 0;
 
     @media (max-width: 70rem) {
         ${props =>
@@ -112,35 +104,20 @@ export const Text = styled.p<TextProps>`
 export const Label = styled.p<TextProps>`
     color: #353535;
     font-family: Inter;
-    font-size: ${props =>
-        props.tiny
-          ? '14px'
-          : '18px'};
+    font-size: ${props => props.tiny ? '14px' : '18px'};
     font-style: normal;
-    font-weight: ${props =>
-        props.bold
-          ? '700'
-          : '400'};
+    font-weight: ${props => props.bold ? '700' : '400'};
     line-height: normal;
-    margin-bottom: ${props =>
-        props.margin0
-          ? '0'
-          : '8px'};
-    margin-top: ${props =>
-        props.tiny
-          ? '8px'
-          : '0'};
+    margin-bottom: ${props => props.margin0  ? '0' : '8px'};
+    margin-top: ${props => props.tiny ? '8px' : '0'};
 
     @media (max-width: 70rem) {
-        font-size: ${props =>
-        props.tiny
-          ? '12px'
-          : '16px'};
+        font-size: ${props => props.tiny ? '12px' : '16px'};
     }
 `;
 
 export const TextSecondary = styled.p`
-    color: #00B8E0;
+    color: #0F3063;
     font-family: Inter;
     font-size: 14px;
     font-style: normal;
@@ -148,7 +125,7 @@ export const TextSecondary = styled.p`
     margin: 0;
     cursor: pointer;
 
-    @media (max-width: 70rem) {
+    @media (max-width: 40rem) {
         font-size: 12px;
     }
 `;
@@ -166,10 +143,7 @@ export const ErrorText = styled.p<ErrorProps>`
     font-style: normal;
     font-weight: 400;
     margin: 0;
-    display: ${props =>
-        props.isError
-          ? 'block'
-          : 'none'};
+    display: ${props => props.isError ? 'block' : 'none'};
 
     @media (max-width: 70rem) {
         font-size: 14px;
