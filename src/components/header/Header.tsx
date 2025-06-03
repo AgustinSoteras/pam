@@ -1,5 +1,5 @@
 import React from 'react'
-import { HeaderContainer, Logo } from './SharedStyles'
+import { HeaderContainer, Logo } from '../../GlobalStyles'
 import { headerLogo } from '../../assets'
 import { useNavigate } from "react-router-dom";
 

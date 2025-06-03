@@ -1,10 +1,10 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Login from './components/login/Login';
-import Campaings from './components/campaigns/Campaings';
-import NewCampaing from './components/campaigns/NewCampaing';
-import SuccessCampaing from './components/shared/Success';
-import Decline from './components/shared/Decline';
+import Login from './pages/login/Login';
+import Campaings from './pages/campaigns/Campaings';
+import NewCampaing from './pages/campaigns/NewCampaing';
+import SuccessCampaing from './components/modals/Success';
+import Decline from './components/modals/Decline';
 
 const RouterApp = () => {
   return (
