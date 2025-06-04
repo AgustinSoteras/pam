@@ -6,25 +6,20 @@ type ButtonProps = {
 };
 
 export const Btn = styled.button<ButtonProps>`
-  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
   display: flex;
-  height: 38px;
-  padding: 8px 16px;
+  height: 48px;
+  padding: 16px;
   justify-content: center;
   align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-  border: ${(props) =>
-    props.secondary ? "1px solid #0F3063!important" : "none"};
+  border: ${(props) => (props.secondary ? "1px solid #00B8E0" : "none")};
   align-self: stretch;
-  color: ${(props) => (props.secondary ? "#0F3063" : "#FFFFFF")};
+  color: ${(props) => (props.secondary ? "#00B8E0" : "#FFFFFF")};
   border-radius: 20px;
-  background: ${(props) => (props.disabled ? "#DDDDDD" : "#0F3063")};
-  background-color: ${(props) => (props.secondary ? "#FFFFFF" : "#0F3063")};
+  background: ${(props) => (props.disabled ? "#DDDDDD" : "#00B8E0")};
+  background-color: ${(props) => (props.secondary ? "#FFFFFF" : "#00B8E0")};
   font-size: 18px;
   border: none;
   cursor: ${(props) => (props.disabled ? "initial" : "pointer")};
-
   margin-top: ${(props) => (props.secondary ? "16px" : "0")};
 
   &:hover {

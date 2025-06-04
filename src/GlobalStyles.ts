@@ -14,6 +14,8 @@ type ErrorProps = {
 
 type InputProps = {
   margin0?: boolean;
+  hasContent?: boolean;
+  error?: boolean;
 };
 
 export const HeaderContainer = styled.div`
@@ -54,7 +56,7 @@ export const DataContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 32px;
+  gap: 24px;
   width: 50%;
   height: auto;
   background-color: #fff;
@@ -96,7 +98,7 @@ export const Text = styled.p<TextProps>`
 export const Label = styled.p<TextProps>`
   color: #353535;
   font-family: Inter;
-  font-size: ${(props) => (props.tiny ? "14px" : "18px")};
+  font-size: ${(props) => (props.tiny ? "14px" : "20px")};
   font-style: normal;
   font-weight: ${(props) => (props.bold ? "700" : "400")};
   line-height: normal;
@@ -130,29 +132,34 @@ export const Form = styled.form`
 `;
 
 export const ErrorText = styled.p<ErrorProps>`
-  color: #ff7970;
+  color: #e23131;
   font-size: 16px;
-  font-style: normal;
   font-weight: 400;
-  margin: 0;
-  display: ${(props) => (props.isError ? "block" : "none")};
 
   @media (max-width: 70rem) {
     font-size: 14px;
   }
 `;
 
-export const Input = styled.input`
+export const Input = styled.input<InputProps>`
   display: flex;
   height: 20px;
-  padding: 8px 16px;
+  padding: 16px;
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
   border-radius: 20px;
-  border: 1px solid #d9d9d9;
+  border: 1px solid
+    ${(val) =>
+      val.hasContent ? "#0E2F4BCC" : val.error ? "#E23131" : "#d9d9d9"};
   background: #fff;
   color: #353535;
+  outline: none;
+  font-size: 20px;
+
+  &:focus {
+    box-shadow: none;
+  }
 `;
 
 export const Select = styled.select`
@@ -190,8 +197,8 @@ export const Icon = styled.img`
 `;
 
 export const Isotype = styled.img`
-  width: auto;
-  height: 40px;
+  width: 58px;
+  height: 58px;
   margin-bottom: -35px;
 `;
 
