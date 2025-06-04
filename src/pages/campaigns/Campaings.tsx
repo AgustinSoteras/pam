@@ -1,51 +1,65 @@
-import React, {useState} from 'react'
-import { DataContainer, Title, Text, TextSecondary, Icon, Row, Column  } from '../../GlobalStyles'
-import Header from '../../components/header/Header'
-import Footer from '../../components/footer/Footer'
-import { Btn } from '../../components/button/ButtonStyle'
-import { add, arrow } from '../../assets'
+import React, { useState } from "react";
+import {
+  DataContainer,
+  Title,
+  Text,
+  TextSecondary,
+  Icon,
+  Row,
+  Column,
+} from "../../GlobalStyles";
+import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer";
+import { Btn } from "../../components/button/ButtonStyle";
+import { add, arrow } from "../../assets";
 import { useNavigate } from "react-router-dom";
-import ClientList from './ClientList'
-import { campaingDataMock } from '../../mocks/CampaingDatamock'
-import { 
+import ClientList from "./ClientList";
+import { campaingDataMock } from "../../mocks/CampaingDatamock";
+import {
   CampaingCard,
-  Pill, 
-  ClientContainer, 
-  CampaingContainer, 
-  TextCampaing, 
-  DropContainer, 
-  Description, 
-  DropItem, 
-  BtnContainer 
-} from './CampaingStyles'
+  Pill,
+  ClientContainer,
+  CampaingContainer,
+  TextCampaing,
+  DropContainer,
+  Description,
+  DropItem,
+  BtnContainer,
+} from "./CampaingStyles";
 
 const Campaings = () => {
-  const [campaings, setCampaings] = useState(true) // ¿hay campañas para ver?
+  const [campaings, setCampaings] = useState(true); // ¿hay campañas para ver?
   const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
   const [showClients, setShowClients] = useState(false);
-  const [campaingStatus, setCampaingStatus] = useState("Generada")
+  const [campaingStatus, setCampaingStatus] = useState("Generada");
 
-  const mockStatus = ["Generada", "Clientes listados","Pendiente de emisión","Rechazada", "Aprobada"];
+  const mockStatus = [
+    "Generada",
+    "Clientes listados",
+    "Pendiente de emisión",
+    "Rechazada",
+    "Aprobada",
+  ];
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
- 
+
   const navigate = useNavigate();
 
   const aproveButton = () => {
     navigate("/operacion-exitosa");
-    setCampaingStatus(mockStatus[4])
-    scrollToTop()
+    setCampaingStatus(mockStatus[4]);
+    scrollToTop();
   };
 
   const declineButton = () => {
     navigate("/operacion-rechazada");
-    setCampaingStatus(mockStatus[3])
-    scrollToTop()
+    setCampaingStatus(mockStatus[3]);
+    scrollToTop();
   };
 
   const editButton = () => {
@@ -53,86 +67,94 @@ const Campaings = () => {
   };
 
   const toggleDropdown = (index) => {
-    setOpenDropdownIndex(prev => prev === index ? null : index);
+    setOpenDropdownIndex((prev) => (prev === index ? null : index));
   };
 
   const toggleClientList = () => {
-    setShowClients(!showClients)
+    setShowClients(!showClients);
   };
 
   return (
     <>
-      <Header/>
+      <Header />
       <Title big={true}>Mis campañas</Title>
-      { campaings ?
-      <CampaingContainer>
-        <Column>
-          <DataContainer>
-            <Text bold={true}>Campaña activa</Text>
-            <CampaingCard>
-              <TextCampaing bold={true}>Campaña 1</TextCampaing>
-              <Row>
-                <Pill onClick={toggleClientList} status={campaingStatus}>{campaingStatus}</Pill>
-                <Icon src={arrow} alt=">" onClick={() => toggleDropdown(0)}/>
-              </Row>
-            </CampaingCard>
-            <DropContainer show={openDropdownIndex === 0}>
-            {
-            campaingDataMock.map((item, index)=>
-              <DropItem key={index}>
-                <TextCampaing bold={true}>{item.name}</TextCampaing>
-                <Description>{item.value}</Description>
-              </DropItem>
-            )}
-              <BtnContainer>
-                <Btn onClick={aproveButton}>Aprobar</Btn>
-                <Btn secondary={true} onClick={declineButton}>Rechazar</Btn>
-                <Btn secondary={true} onClick={editButton}>Modificar</Btn>
-              </BtnContainer>
-            </DropContainer>
-          </DataContainer>
+      {campaings ? (
+        <CampaingContainer>
+          <Column>
+            <DataContainer>
+              <Text bold={true}>Campaña activa</Text>
+              <CampaingCard>
+                <TextCampaing bold={true}>Campaña 1</TextCampaing>
+                <Row>
+                  <Pill onClick={toggleClientList} status={campaingStatus}>
+                    {campaingStatus}
+                  </Pill>
+                  <Icon src={arrow} alt=">" onClick={() => toggleDropdown(0)} />
+                </Row>
+              </CampaingCard>
+              <DropContainer show={openDropdownIndex === 0}>
+                {campaingDataMock.map((item, index) => (
+                  <DropItem key={index}>
+                    <TextCampaing bold={true}>{item.name}</TextCampaing>
+                    <Description>{item.value}</Description>
+                  </DropItem>
+                ))}
+                <BtnContainer>
+                  <Btn onClick={aproveButton}>Aprobar</Btn>
+                  <Btn secondary={true} onClick={declineButton}>
+                    Rechazar
+                  </Btn>
+                  <Btn secondary={true} onClick={editButton}>
+                    Modificar
+                  </Btn>
+                </BtnContainer>
+              </DropContainer>
+            </DataContainer>
 
-          <ClientContainer show={showClients}>
-              <ClientList/>
-          </ClientContainer>
+            <ClientContainer show={showClients}>
+              <ClientList />
+            </ClientContainer>
 
-          <DataContainer>
-          <Text bold={true}>Últimas campañas</Text>
-            <CampaingCard>
-              <TextCampaing bold={true}>Campaña 1</TextCampaing>
-              <Row>
-                  <Pill status='Generada'>Generada</Pill>
-                  <Icon src={arrow} alt=">" onClick={() => toggleDropdown(1)}/>
-              </Row>
-            </CampaingCard>
-            <DropContainer show={openDropdownIndex === 1}>
-            {
-            campaingDataMock.map((item, index)=>
-              <DropItem key={index}>
-                <TextCampaing bold={true}>{item.name}</TextCampaing>
-                <Description>{item.value}</Description>
-              </DropItem>
-            )}
-            </DropContainer>
-          </DataContainer>
+            <DataContainer>
+              <Text bold={true}>Últimas campañas</Text>
+              <CampaingCard>
+                <TextCampaing bold={true}>Campaña 1</TextCampaing>
+                <Row>
+                  <Pill status="Generada">Generada</Pill>
+                  <Icon src={arrow} alt=">" onClick={() => toggleDropdown(1)} />
+                </Row>
+              </CampaingCard>
+              <DropContainer show={openDropdownIndex === 1}>
+                {campaingDataMock.map((item, index) => (
+                  <DropItem key={index}>
+                    <TextCampaing bold={true}>{item.name}</TextCampaing>
+                    <Description>{item.value}</Description>
+                  </DropItem>
+                ))}
+              </DropContainer>
+            </DataContainer>
+            <Row onClick={editButton}>
+              <Icon src={add} alt="+" />
+              <TextSecondary>Generar nueva campaña</TextSecondary>
+            </Row>
+          </Column>
+        </CampaingContainer>
+      ) : (
+        // vista que muestra si aun no existen campañas
+        <DataContainer>
+          <Text>
+            No tenés una campaña activa, seleccioná el botón + para generar una
+            nueva
+          </Text>
           <Row onClick={editButton}>
-            <Icon src={add} alt="+"/>
+            <Icon src={add} alt="+" />
             <TextSecondary>Generar nueva campaña</TextSecondary>
           </Row>
-        </Column>
-      </CampaingContainer>
-    : // vista que muestra si aun no existen campañas
-      <DataContainer>
-        <Text>No tenés una campaña activa, seleccioná el botón + para generar una nueva</Text>
-        <Row onClick={editButton}>
-            <Icon src={add} alt="+"/>
-            <TextSecondary>Generar nueva campaña</TextSecondary>
-        </Row>
-      </DataContainer>
-    }
-    <Footer/>
-  </>
-  )
-}
+        </DataContainer>
+      )}
+      <Footer />
+    </>
+  );
+};
 
-export default Campaings
+export default Campaings;

@@ -1,17 +1,25 @@
-import React, {useState} from 'react'
-import { DataContainer, Title, Input, InputContainer, Label, Select, Form } from '../../GlobalStyles'
-import Header from '../../components/header/Header';
-import Footer from '../../components/footer/Footer';
-import { Btn } from '../../components/button/ButtonStyle'
+import React, { useState } from "react";
+import {
+  DataContainer,
+  Title,
+  Input,
+  InputContainer,
+  Label,
+  Select,
+  Form,
+} from "../../GlobalStyles";
+import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer";
+import { Btn } from "../../components/button/ButtonStyle";
 import { useNavigate } from "react-router-dom";
 
 const NewCampaing = () => {
-  const [textInput1, setTextInput1] = useState('');
-  const [textInput2, setTextInput2] = useState('');
-  const [textInput3, setTextInput3] = useState('');
+  const [textInput1, setTextInput1] = useState("");
+  const [textInput2, setTextInput2] = useState("");
+  const [textInput3, setTextInput3] = useState("");
   const [fileInput1, setFileInput1] = useState(null);
   const [fileInput2, setFileInput2] = useState(null);
-  const [selectValue, setSelectValue] = useState('');
+  const [selectValue, setSelectValue] = useState("");
 
   const handleTextInput1Change = (event) => {
     setTextInput1(event.target.value);
@@ -44,58 +52,77 @@ const NewCampaing = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
 
   const navigate = useNavigate();
   const aproveButton = () => {
     navigate("/operacion-exitosa");
-    scrollToTop()
+    scrollToTop();
   };
 
   return (
     <>
-    <Header/>
-    <Title>Generar campaña</Title>
-    <DataContainer>
-      <Form onSubmit={handleSubmit}>
-        <InputContainer>
-          <Label>Título</Label>
-          <Input type="text" value={textInput1} onChange={handleTextInput1Change}/>
-        </InputContainer>
-        <InputContainer>
-          <Label>Marca</Label>
-          <Select value={selectValue} onChange={handleSelectChange}>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-          </Select>
-        </InputContainer>
-        <InputContainer>
-          <Label>Público objetivo</Label>
-          <Input type="text" value={textInput2} onChange={handleTextInput2Change}/>
-        </InputContainer>
-        <InputContainer>
-          <Label>Periodicidad de recordatorios</Label>
-          <Input type="text" value={textInput3} onChange={handleTextInput3Change}/>
-        </InputContainer>
-        <InputContainer>
-          <Label margin0={true} bold={true}> Adjuntar una imagen</Label>
-          <Label tiny={true}>Esta imagen se utilizará en las notificaciones a los prospectos</Label>
-          <Input type="file" onChange={handleFileInput1Change}/>
-          <Label tiny={true}>Hasta 50 MB en .jpg, .jpeg o .png</Label>
-        </InputContainer>
-        <InputContainer>
-          <Label bold={true}> Listado de clientes con Scoring</Label>
-          <Input type="file" onChange={handleFileInput2Change}/>
-          <Label tiny={true}>Hasta 100 MB en .jpg, .jpeg o .png</Label>
-        </InputContainer>
-        <Btn type='submit' onClick={aproveButton}>Guardar</Btn>
-      </Form>
-    </DataContainer>
-    <Footer/>
-  </>
-  )
-}
+      <Header />
+      <Title>Generar campaña</Title>
+      <DataContainer>
+        <Form onSubmit={handleSubmit}>
+          <InputContainer>
+            <Label>Título</Label>
+            <Input
+              type="text"
+              value={textInput1}
+              onChange={handleTextInput1Change}
+            />
+          </InputContainer>
+          <InputContainer>
+            <Label>Marca</Label>
+            <Select value={selectValue} onChange={handleSelectChange}>
+              <option value="option1">Option 1</option>
+              <option value="option2">Option 2</option>
+            </Select>
+          </InputContainer>
+          <InputContainer>
+            <Label>Público objetivo</Label>
+            <Input
+              type="text"
+              value={textInput2}
+              onChange={handleTextInput2Change}
+            />
+          </InputContainer>
+          <InputContainer>
+            <Label>Periodicidad de recordatorios</Label>
+            <Input
+              type="text"
+              value={textInput3}
+              onChange={handleTextInput3Change}
+            />
+          </InputContainer>
+          <InputContainer>
+            <Label margin0={true} bold={true}>
+              {" "}
+              Adjuntar una imagen
+            </Label>
+            <Label tiny={true}>
+              Esta imagen se utilizará en las notificaciones a los prospectos
+            </Label>
+            <Input type="file" onChange={handleFileInput1Change} />
+            <Label tiny={true}>Hasta 50 MB en .jpg, .jpeg o .png</Label>
+          </InputContainer>
+          <InputContainer>
+            <Label bold={true}> Listado de clientes con Scoring</Label>
+            <Input type="file" onChange={handleFileInput2Change} />
+            <Label tiny={true}>Hasta 100 MB en .jpg, .jpeg o .png</Label>
+          </InputContainer>
+          <Btn type="submit" onClick={aproveButton}>
+            Guardar
+          </Btn>
+        </Form>
+      </DataContainer>
+      <Footer />
+    </>
+  );
+};
 
-export default NewCampaing
+export default NewCampaing;

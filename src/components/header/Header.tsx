@@ -1,6 +1,5 @@
-import React from 'react'
-import { HeaderContainer, Logo } from '../../GlobalStyles'
-import { headerLogo } from '../../assets'
+import { HeaderContainer, Logo } from "../../GlobalStyles";
+import { headerLogo } from "../../assets";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
@@ -12,9 +11,9 @@ const Header = () => {
 
   return (
     <HeaderContainer>
-        <Logo src={headerLogo} onClick={backHome} alt="Banco Formosa"/>
+      <Logo src={headerLogo} onClick={backHome} alt="Banco Formosa" />
     </HeaderContainer>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

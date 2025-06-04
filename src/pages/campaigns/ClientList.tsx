@@ -1,20 +1,21 @@
-import React from 'react'
-import Swal from 'sweetalert2'
-import { clientsMock } from '../../mocks/ClientsMock'
-import MaterialTable from '@material-table/core'
+import React from "react";
+import Swal from "sweetalert2";
+import { clientsMock } from "../../mocks/ClientsMock";
+import MaterialTable from "@material-table/core";
 
 const ClientList = () => {
+  const tableData = clientsMock.map((item) => ({
+    name: item.name,
+    lastname: item.lastname,
+    dni: item.dniNumber,
+  }));
 
-    const tableData = clientsMock.map((item)=>({
-       name: item.name, lastname: item.lastname, dni: item.dniNumber
-    }))
-
-    const showClient = (dni) => {
-        const client = clientsMock.find(user => user.dniNumber === dni);
-        if (client) {
-            Swal.fire({
-                title:"Detalles del cliente",
-                html: `
+  const showClient = (dni) => {
+    const client = clientsMock.find((user) => user.dniNumber === dni);
+    if (client) {
+      Swal.fire({
+        title: "Detalles del cliente",
+        html: `
                 <b>Nombre y apellido del titular</b> <p>${client.name} ${client.lastname}</p> 
                 <b>Número de DNI</b> <p>${client.dniNumber}</p> 
                 <b>Cuenta Bantotal</b> <p>${client.bantotalAccount}</p> 
@@ -43,34 +44,42 @@ const ClientList = () => {
                 <b>Subcuenta (de la cuenta vista)</b> <p>${client.checkingAccountSubaccount}</p> 
                 <b>Tipo de operación</b> <p>${client.operationType}</p> 
                 `,
-                confirmButtonText: 'Aceptar'
-              })
-        } else {
-          console.log('Cliente no encontrado');
-        }
-      };
+        confirmButtonText: "Aceptar",
+      });
+    } else {
+      console.log("Cliente no encontrado");
+    }
+  };
 
   return (
-    <>  
+    <>
       <MaterialTable
-          title="Clientes listados"
-          columns={[
-              { title: 'Nombre', field: 'name' },
-              { title: 'Apellido', field: 'lastname' },
-              { title: 'DNI', field: 'dni', type: 'numeric' },
-              { title: 'Detalle', render: (rowData) => (
-                  <button className='btn-table' onClick={() => showClient(rowData.dni)}>Ver más </button>
-                )},
-          ]}
-          data={tableData}
-          options={{
-              rowStyle: {
-              backgroundColor: '#EEE',
-              }
-          }}
+        title="Clientes listados"
+        columns={[
+          { title: "Nombre", field: "name" },
+          { title: "Apellido", field: "lastname" },
+          { title: "DNI", field: "dni", type: "numeric" },
+          {
+            title: "Detalle",
+            render: (rowData) => (
+              <button
+                className="btn-table"
+                onClick={() => showClient(rowData.dni)}
+              >
+                Ver más{" "}
+              </button>
+            ),
+          },
+        ]}
+        data={tableData}
+        options={{
+          rowStyle: {
+            backgroundColor: "#EEE",
+          },
+        }}
       />
     </>
-  )
-}
+  );
+};
 
-export default ClientList
+export default ClientList;
