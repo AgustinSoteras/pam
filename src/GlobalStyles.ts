@@ -32,6 +32,10 @@ type PropsSelect = {
   hasContent?: boolean;
 };
 
+type PropsDataContainer = {
+  fitContent?: boolean;
+};
+
 export const HeaderContainer = styled.div`
   height: 120px;
   display: flex;
@@ -64,14 +68,14 @@ export const Banner = styled.img`
   margin-bottom: 5%;
 `;
 
-export const DataContainer = styled.div`
+export const DataContainer = styled.div<PropsDataContainer>`
+  ${(props) => (props.fitContent ? `width: fit-content;` : "min-width: 50%;")}
   display: flex;
   padding: 32px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 24px;
-  width: fit-content;
   max-width: 100%;
   height: auto;
   background-color: #fff;

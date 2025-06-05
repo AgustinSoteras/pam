@@ -84,7 +84,7 @@ const NewCampaing = () => {
     <>
       <Header />
       <Title margin="0px 0px 32px 0px">Generar campaña</Title>
-      <DataContainer>
+      <DataContainer fitContent>
         <Form onSubmit={handleSubmit}>
           <InputContainer>
             <Label>Título*</Label>
