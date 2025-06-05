@@ -6,6 +6,7 @@ type TextProps = {
   spaceBottom?: boolean;
   big?: boolean;
   margin0?: boolean;
+  margin?: string;
 };
 
 type ErrorProps = {
@@ -18,8 +19,12 @@ type InputProps = {
   error?: boolean;
 };
 
-type Props = {
-  width?: string;
+type PropsIcon = {
+  paddingRight?: string;
+};
+
+type PropsTextSecondary = {
+  fontSize?: string;
 };
 
 export const HeaderContainer = styled.div`
@@ -77,7 +82,7 @@ export const Title = styled.p<TextProps>`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  margin: 0;
+  margin: ${(val) => (val.margin ? val.margin : "0px")};
 
   @media (max-width: 70rem) {
     ${(props) => (props.big ? "20px" : "16px")};
@@ -114,10 +119,10 @@ export const Label = styled.p<TextProps>`
   }
 `;
 
-export const TextSecondary = styled.p`
+export const TextSecondary = styled.p<PropsTextSecondary>`
   color: #0f3063;
   font-family: Inter;
-  font-size: 14px;
+  font-size: ${(val) => (val.fontSize ? val.fontSize : "14px")};
   font-style: normal;
   font-weight: 600;
   margin: 0;
@@ -193,10 +198,10 @@ export const Logo = styled.img`
   cursor: pointer;
 `;
 
-export const Icon = styled.img<Props>`
-  width: ${(props) => props.width ? props.width : "auto"};
+export const Icon = styled.img<PropsIcon>`
+  width: ${(props) => (props.width ? props.width : "auto")};
   height: auto;
-  padding-right: 5px;
+  padding-right: ${(val) => (val.paddingRight ? val.paddingRight : "5px")};
   cursor: pointer;
 `;
 
