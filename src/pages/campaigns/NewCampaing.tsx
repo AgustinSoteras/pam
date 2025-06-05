@@ -5,13 +5,13 @@ import {
   Input,
   InputContainer,
   Label,
-  Select,
   Form,
 } from "../../GlobalStyles";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import { Btn } from "../../components/button/ButtonStyle";
 import { useNavigate } from "react-router-dom";
+import Select from "../../components/select/select";
 
 const NewCampaing = () => {
   const [textInput1, setTextInput1] = useState("");
@@ -62,15 +62,18 @@ const NewCampaing = () => {
     scrollToTop();
   };
 
+  const optionsSelect = ["Option 1", "Option 2"];
+
   return (
     <>
       <Header />
-      <Title>Generar campaña</Title>
+      <Title margin="0px 0px 32px 0px">Generar campaña</Title>
       <DataContainer>
         <Form onSubmit={handleSubmit}>
           <InputContainer>
             <Label>Título</Label>
             <Input
+              hasContent={textInput1.length > 0}
               type="text"
               value={textInput1}
               onChange={handleTextInput1Change}
@@ -78,10 +81,7 @@ const NewCampaing = () => {
           </InputContainer>
           <InputContainer>
             <Label>Marca</Label>
-            <Select value={selectValue} onChange={handleSelectChange}>
-              <option value="option1">Option 1</option>
-              <option value="option2">Option 2</option>
-            </Select>
+            <Select options={optionsSelect} />
           </InputContainer>
           <InputContainer>
             <Label>Público objetivo</Label>

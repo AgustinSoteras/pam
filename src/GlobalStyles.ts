@@ -27,6 +27,10 @@ type PropsTextSecondary = {
   fontSize?: string;
 };
 
+type PropsSelect = {
+  hasContent?: boolean;
+};
+
 export const HeaderContainer = styled.div`
   height: 120px;
   display: flex;
@@ -66,7 +70,8 @@ export const DataContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 24px;
-  width: 50%;
+  width: fit-content;
+  max-width: 100%;
   height: auto;
   background-color: #fff;
   border-radius: 20px;
@@ -171,16 +176,18 @@ export const Input = styled.input<InputProps>`
   }
 `;
 
-export const Select = styled.select`
-  display: flex;
-  height: 38px;
+export const Select = styled.select<PropsSelect>`
+  height: 58px;
   padding: 8px 16px;
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
   border-radius: 20px;
-  border: 1px solid #d9d9d9;
+  border: 1px solid ${(val) => (val.hasContent ? "#0E2F4BCC" : "#d9d9d9")};
   background: #fff;
+  outline: none;
+  color: #353535;
+  font-size: 16px;
 `;
 
 export const InputContainer = styled.div<InputProps>`
