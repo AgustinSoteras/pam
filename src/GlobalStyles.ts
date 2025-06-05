@@ -117,7 +117,8 @@ export const Label = styled.p<TextProps>`
   font-weight: ${(props) => (props.bold ? "700" : "400")};
   line-height: normal;
   margin-bottom: ${(props) => (props.margin0 ? "0" : "8px")};
-  margin-top: ${(props) => (props.tiny ? "8px" : "0")};
+  margin-top: ${(props) =>
+    props.margin ? props.margin : props.tiny ? "8px" : "0"};
 
   @media (max-width: 70rem) {
     font-size: ${(props) => (props.tiny ? "12px" : "16px")};
@@ -243,4 +244,36 @@ export const SpaceBetween = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
+`;
+
+export const FileUploadLabel = styled.label`
+  padding: 10px 16px;
+  color: #0f3063;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 52px;
+  border-radius: 20px;
+  border: 1px solid #d9d9d9;
+  box-sizing: border-box;
+`;
+
+export const TextFileUploadLabel = styled.span`
+  font-weight: bold;
+`;
+
+export const ContainerFileName = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+`;
+
+export const IconTrash = styled.img`
+  z-index: 1
 `;

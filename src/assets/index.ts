@@ -11,3 +11,5 @@ export { default as download } from "../assets/icons/download.svg";
 export { default as upload } from "../assets/icons/upload.svg";
 export { default as arrowDown } from "../assets/icons/arrowDown.svg";
 export { default as arrowUp } from "../assets/icons/arrowUp.svg";
+export { default as downloadIconBlue } from "../assets/icons/downloadIconBlue.svg";
+export { default as trashIcon } from "../assets/icons/trashIcon.svg";
