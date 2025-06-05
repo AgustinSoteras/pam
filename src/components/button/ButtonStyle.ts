@@ -11,14 +11,13 @@ export const Btn = styled.button<ButtonProps>`
   padding: 16px;
   justify-content: center;
   align-items: center;
-  border: ${(props) => (props.secondary ? "1px solid #00B8E0" : "none")};
+  border: 1px solid #0F3063;
   align-self: stretch;
-  color: ${(props) => (props.secondary ? "#00B8E0" : "#FFFFFF")};
+  color: ${(props) => (props.secondary ? "#0F3063" : "#FFFFFF")};
   border-radius: 20px;
-  background: ${(props) => (props.disabled ? "#DDDDDD" : "#00B8E0")};
-  background-color: ${(props) => (props.secondary ? "#FFFFFF" : "#00B8E0")};
+  background: ${(props) => (props.disabled ? "#DDDDDD" : "#0F3063")};
+  background-color: ${(props) => (props.secondary ? "#FFFFFF" : "#0F3063")};
   font-size: 18px;
-  border: none;
   cursor: ${(props) => (props.disabled ? "initial" : "pointer")};
   margin-top: ${(props) => (props.secondary ? "16px" : "0")};
 

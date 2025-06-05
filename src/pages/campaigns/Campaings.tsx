@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {
   DataContainer,
-  Title,
+  SpaceBetween,
   Text,
   TextSecondary,
   Icon,
@@ -11,7 +11,7 @@ import {
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import { Btn } from "../../components/button/ButtonStyle";
-import { add, arrow } from "../../assets";
+import { add, arrow, download, upload } from "../../assets";
 import { useNavigate } from "react-router-dom";
 import ClientList from "./ClientList";
 import { campaingDataMock } from "../../mocks/CampaingDatamock";
@@ -25,6 +25,8 @@ import {
   Description,
   DropItem,
   BtnContainer,
+  TextFile,
+  UploadBox
 } from "./CampaingStyles";
 
 const Campaings = () => {
@@ -77,7 +79,6 @@ const Campaings = () => {
   return (
     <>
       <Header />
-      <Title big={true}>Mis campañas</Title>
       {campaings ? (
         <CampaingContainer>
           <Column>
@@ -92,6 +93,7 @@ const Campaings = () => {
                   <Icon src={arrow} alt=">" onClick={() => toggleDropdown(0)} />
                 </Row>
               </CampaingCard>
+
               <DropContainer show={openDropdownIndex === 0}>
                 {campaingDataMock.map((item, index) => (
                   <DropItem key={index}>
@@ -99,13 +101,34 @@ const Campaings = () => {
                     <Description>{item.value}</Description>
                   </DropItem>
                 ))}
+                <SpaceBetween>
+                  <TextCampaing>Archivo Resultante</TextCampaing>
+                  <Icon onClick={()=>{}} src={download} alt="⬇️" />
+                </SpaceBetween>
+                <UploadBox>
+                  <label htmlFor="file-upload" style={{ cursor: "pointer", display: "flex", alignItems: "center" }}>
+                    <Icon src={upload} alt="Subir archivo" />
+                    <TextFile>Adjuntar Log</TextFile>
+                  </label>
+                  <input
+                    id="file-upload"
+                    type="file"
+                    style={{ display: "none" }}
+                    onChange={(e) => {
+                      const files = e.target.files;
+                      if (files && files.length > 0) {
+                        const file = files[0];
+                        console.log("Archivo seleccionado:", file.name);
+                      }
+                    }}
+                  />
+                </UploadBox>
                 <BtnContainer>
-                  <Btn onClick={aproveButton}>Aprobar</Btn>
                   <Btn secondary={true} onClick={declineButton}>
-                    Rechazar
+                    Registrar observaciones
                   </Btn>
-                  <Btn secondary={true} onClick={editButton}>
-                    Modificar
+                  <Btn onClick={editButton}>
+                    Finalizar campaña
                   </Btn>
                 </BtnContainer>
               </DropContainer>
@@ -118,7 +141,7 @@ const Campaings = () => {
             <DataContainer>
               <Text bold={true}>Últimas campañas</Text>
               <CampaingCard>
-                <TextCampaing bold={true}>Campaña 1</TextCampaing>
+                <TextCampaing>Campaña 1</TextCampaing>
                 <Row>
                   <Pill status="Generada">Generada</Pill>
                   <Icon src={arrow} alt=">" onClick={() => toggleDropdown(1)} />
@@ -127,7 +150,7 @@ const Campaings = () => {
               <DropContainer show={openDropdownIndex === 1}>
                 {campaingDataMock.map((item, index) => (
                   <DropItem key={index}>
-                    <TextCampaing bold={true}>{item.name}</TextCampaing>
+                    <TextCampaing>{item.name}</TextCampaing>
                     <Description>{item.value}</Description>
                   </DropItem>
                 ))}

@@ -18,6 +18,10 @@ type InputProps = {
   error?: boolean;
 };
 
+type Props = {
+  width?: string;
+};
+
 export const HeaderContainer = styled.div`
   height: 120px;
   display: flex;
@@ -189,9 +193,9 @@ export const Logo = styled.img`
   cursor: pointer;
 `;
 
-export const Icon = styled.img`
-  width: auto;
-  height: 24px;
+export const Icon = styled.img<Props>`
+  width: ${(props) => props.width ? props.width : "auto"};
+  height: auto;
   padding-right: 5px;
   cursor: pointer;
 `;
@@ -220,4 +224,11 @@ export const Column = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
+`;
+
+export const SpaceBetween = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 `;

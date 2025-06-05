@@ -55,7 +55,7 @@ export const TextCampaing = styled.p<TextProps>`
   font-family: Inter;
   font-size: 16px;
   font-style: normal;
-  font-weight: ${(props) => (props.bold ? "700" : "400")};
+  font-weight: 700;
   line-height: normal;
   margin: 0;
 
@@ -88,6 +88,7 @@ export const DropContainer = styled.div<ShowProps>`
   flex-direction: column;
   align-items: flex-start;
   transition: opacity 0.5s ease-in-out;
+  gap: 16px;
 `;
 
 export const BtnContainer = styled.div<ShowProps>`
@@ -98,6 +99,7 @@ export const BtnContainer = styled.div<ShowProps>`
   align-items: center;
   margin-top: 16px;
   transition: opacity 0.5s ease-in-out;
+  gap: 16px;
 `;
 
 export const DropItem = styled.div`
@@ -106,7 +108,6 @@ export const DropItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-bottom: 16px;
 `;
 
 export const ClientContainer = styled.div<ShowProps>`
@@ -139,5 +140,30 @@ export const Pill = styled.span<PillProps>`
   padding: 2px 12px;
   font-weight: 700;
   margin-right: 5px;
+  cursor: pointer;
+`;
+
+export const TextFile = styled.p<TextProps>`
+  color: #0F3063;
+  text-align: center;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0;
+  text-decoration: underline;
+
+  @media (max-width: 70rem) {
+    font-size: 12px;
+  }
+`;
+
+export const UploadBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 4px;
+  padding: 32px 0 0 0;
   cursor: pointer;
 `;

@@ -13,9 +13,8 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import { Btn } from "../../components/button/ButtonStyle";
 import { useNavigate } from "react-router-dom";
-import { isotipo } from "../../assets";
+import { isotipo, errorIcon } from "../../assets";
 import { ContainerErrorText } from "./styles";
-import errorIcon from "./../../assets/errorIcon.svg";
 
 const Login = () => {
   const [error, setError] = useState(false);
