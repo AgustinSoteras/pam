@@ -7,6 +7,7 @@ type TextProps = {
   big?: boolean;
   margin0?: boolean;
   margin?: string;
+  fontSize?: string;
 };
 
 type ErrorProps = {
@@ -83,7 +84,8 @@ export const Title = styled.p<TextProps>`
   color: #353535;
   text-align: center;
   font-family: Inter;
-  font-size: ${(props) => (props.big ? "36px" : "24px")};
+  font-size: ${(props) =>
+    props.big ? "36px" : props.fontSize ? props.fontSize : "24px"};
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -98,8 +100,7 @@ export const Text = styled.p<TextProps>`
   color: #353535;
   text-align: center;
   font-family: Inter;
-  font-size: 18px;
-  font-style: normal;
+  font-size: ${(props) => (props.fontSize ? props.fontSize : "18px")};
   font-weight: ${(props) => (props.bold ? "700" : "400")};
   line-height: normal;
   margin: 0;
@@ -275,5 +276,5 @@ export const ContainerFileName = styled.div`
 `;
 
 export const IconTrash = styled.img`
-  z-index: 1
+  z-index: 1;
 `;

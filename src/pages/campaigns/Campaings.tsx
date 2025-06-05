@@ -80,7 +80,7 @@ const Campaings = () => {
   return (
     <>
       <Header />
-      {!campaings ? (
+      {campaings ? (
         <CampaingContainer>
           <Column>
             <DataContainer>
