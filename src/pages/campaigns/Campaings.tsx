@@ -7,6 +7,7 @@ import {
   Icon,
   Row,
   Column,
+  Title,
 } from "../../GlobalStyles";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
@@ -26,7 +27,7 @@ import {
   DropItem,
   BtnContainer,
   TextFile,
-  UploadBox
+  UploadBox,
 } from "./CampaingStyles";
 
 const Campaings = () => {
@@ -103,10 +104,17 @@ const Campaings = () => {
                 ))}
                 <SpaceBetween>
                   <TextCampaing>Archivo Resultante</TextCampaing>
-                  <Icon onClick={()=>{}} src={download} alt="⬇️" />
+                  <Icon onClick={() => {}} src={download} alt="⬇️" />
                 </SpaceBetween>
                 <UploadBox>
-                  <label htmlFor="file-upload" style={{ cursor: "pointer", display: "flex", alignItems: "center" }}>
+                  <label
+                    htmlFor="file-upload"
+                    style={{
+                      cursor: "pointer",
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
                     <Icon src={upload} alt="Subir archivo" />
                     <TextFile>Adjuntar Log</TextFile>
                   </label>
@@ -127,9 +135,7 @@ const Campaings = () => {
                   <Btn secondary={true} onClick={declineButton}>
                     Registrar observaciones
                   </Btn>
-                  <Btn onClick={editButton}>
-                    Finalizar campaña
-                  </Btn>
+                  <Btn onClick={editButton}>Finalizar campaña</Btn>
                 </BtnContainer>
               </DropContainer>
             </DataContainer>
@@ -164,16 +170,21 @@ const Campaings = () => {
         </CampaingContainer>
       ) : (
         // vista que muestra si aun no existen campañas
-        <DataContainer>
-          <Text>
-            No tenés una campaña activa, seleccioná el botón + para generar una
-            nueva
-          </Text>
-          <Row onClick={editButton}>
-            <Icon src={add} alt="+" />
-            <TextSecondary>Generar nueva campaña</TextSecondary>
-          </Row>
-        </DataContainer>
+        <>
+          <Title margin="0px 0px 32px 0px">Mis campañas</Title>
+          <DataContainer>
+            <Text>
+              No tenés una campaña activa, seleccioná el <br /> botón + para
+              generar una nueva
+            </Text>
+            <Row onClick={editButton}>
+              <Icon paddingRight="16px" src={add} alt="+" />
+              <TextSecondary fontSize="20px">
+                Generar nueva campaña
+              </TextSecondary>
+            </Row>
+          </DataContainer>
+        </>
       )}
       <Footer />
     </>

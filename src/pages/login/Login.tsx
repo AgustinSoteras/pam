@@ -41,9 +41,7 @@ const Login = () => {
     setError(false);
     setPassValue(event.target.value);
   };
-
-  console.log(passValue.length > 0 && !error)
-
+  
   return (
     <>
       <Header />
