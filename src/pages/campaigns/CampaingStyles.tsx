@@ -24,7 +24,6 @@ export const CampaingCard = styled.div`
   height: auto;
   background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 `;
 
 export const ClientCard = styled.div`
@@ -53,7 +52,7 @@ export const TextCampaing = styled.p<TextProps>`
   color: #353535;
   text-align: center;
   font-family: Inter;
-  font-size: 16px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -66,9 +65,9 @@ export const TextCampaing = styled.p<TextProps>`
 
 export const Description = styled.span`
   font-family: Inter;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
-  margin-top: 0px;
+  margin-top: 8px;
   color: #353535;
 `;
 
@@ -121,30 +120,36 @@ export const ClientContainer = styled.div<ShowProps>`
 
 export const Pill = styled.span<PillProps>`
   background-color: ${(props) => {
-    if (props.status === "Generada") return "#DBEEFF";
-    if (props.status === "Pendiente de emisión") return "#FFFA78";
-    if (props.status === "Rechazada") return "#FF7970";
-    if (props.status === "Clientes listados") return "#bc93e3";
-    return "#93E396";
+    if (
+      props.status === "En proceso" ||
+      props.status === "En revisión de datos"
+    )
+      return "#DBEEFF";
+    if (props.status === "Pendiente") return "#FFFEDD";
+    if (props.status === "Observada") return "#FFCFCC";
+    if (props.status === "Finalizada") return "#DEFFDF";
   }};
-  font-family: Inter;
-  font-size: 14px;
+  font-size: 12px;
   border-radius: 20px;
   color: ${(props) => {
-    if (props.status === "Generada") return "#0F3063";
-    if (props.status === "Pendiente de emisión") return "#807c15";
-    if (props.status === "Rechazada") return "#94271f";
-    if (props.status === "Clientes listados") return "#28133f";
-    return "#133f14";
+    if (
+      props.status === "En proceso" ||
+      props.status === "En revisión de datos"
+    )
+      return "#002A4D";
+    if (props.status === "Pendiente") return "#B9B100";
+    if (props.status === "Observada") return "#9D3939";
+    if (props.status === "Finalizada") return "#357935";
   }};
   padding: 2px 12px;
   font-weight: 700;
   margin-right: 5px;
   cursor: pointer;
+  user-select: none;
 `;
 
 export const TextFile = styled.p<TextProps>`
-  color: #0F3063;
+  color: #0f3063;
   text-align: center;
   font-family: Inter;
   font-size: 14px;
