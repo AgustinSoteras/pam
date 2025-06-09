@@ -17,12 +17,23 @@ import { Btn } from "../../components/button/ButtonStyle";
 import { useNavigate } from "react-router-dom";
 import Select from "../../components/select/select";
 import { downloadIconBlue, trashIcon } from "../../assets";
+import { useLocation } from "react-router-dom";
 
 const NewCampaing = () => {
-  const [textInput1, setTextInput1] = useState("");
-  const [textInput2, setTextInput2] = useState("");
-  const [fileName1, setFileName1] = useState<string | null>(null);
-  const [fileName2, setFileName2] = useState<string | null>(null);
+  const location = useLocation();
+  const { title, brand, targetAudience, preEmissionFile, targetFile } =
+    location.state;
+
+  const [textInput1, setTextInput1] = useState(title ? title : "");
+  const [textInput2, setTextInput2] = useState(
+    targetAudience ? targetAudience : ""
+  );
+  const [fileName1, setFileName1] = useState<string | null>(
+    preEmissionFile ? preEmissionFile : null
+  );
+  const [fileName2, setFileName2] = useState<string | null>(
+    targetFile ? targetFile : null
+  );
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleTextInput1Change = (event) => {
@@ -97,7 +108,7 @@ const NewCampaing = () => {
           </InputContainer>
           <InputContainer>
             <Label>Marca*</Label>
-            <Select options={optionsSelect} />
+            <Select value={brand} options={optionsSelect} />
           </InputContainer>
           <InputContainer>
             <Label>Público objetivo (Opcional)</Label>

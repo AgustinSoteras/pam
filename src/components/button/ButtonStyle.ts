@@ -3,6 +3,7 @@ import styled from "styled-components";
 type ButtonProps = {
   disabled?: boolean;
   secondary?: boolean;
+  bold?: boolean;
 };
 
 export const Btn = styled.button<ButtonProps>`
@@ -11,7 +12,7 @@ export const Btn = styled.button<ButtonProps>`
   padding: 16px;
   justify-content: center;
   align-items: center;
-  border: 1px solid #0F3063;
+  border: 1px solid #0f3063;
   align-self: stretch;
   color: ${(props) => (props.secondary ? "#0F3063" : "#FFFFFF")};
   border-radius: 20px;
@@ -20,6 +21,7 @@ export const Btn = styled.button<ButtonProps>`
   font-size: 18px;
   cursor: ${(props) => (props.disabled ? "initial" : "pointer")};
   margin-top: ${(props) => (props.secondary ? "16px" : "0")};
+  ${(props) => props.bold && `font-weight: bold;`}
 
   &:hover {
     filter: ${(props) =>

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
   DataContainer,
-  SpaceBetween,
   Text,
   TextSecondary,
   Icon,
@@ -12,7 +11,7 @@ import {
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import { Btn } from "../../components/button/ButtonStyle";
-import { add, arrow, download, upload } from "../../assets";
+import { add, arrow, arrowDown, arrowUp, download, upload } from "../../assets";
 import { useNavigate } from "react-router-dom";
 import ClientList from "./ClientList";
 import { campaingDataMock } from "../../mocks/CampaingDatamock";
@@ -26,47 +25,40 @@ import {
   Description,
   DropItem,
   BtnContainer,
-  TextFile,
-  UploadBox,
 } from "./CampaingStyles";
+
+interface CampaingValues {
+  title?: string;
+  brand?: string;
+  targetAudience?: string;
+  preEmissionFile?: string;
+  targetFile?: string;
+}
 
 const Campaings = () => {
   const [campaings, setCampaings] = useState(true); // ¿hay campañas para ver?
   const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
   const [showClients, setShowClients] = useState(false);
-  const [campaingStatus, setCampaingStatus] = useState("Generada");
-
-  const mockStatus = [
-    "Generada",
-    "Clientes listados",
-    "Pendiente de emisión",
-    "Rechazada",
-    "Aprobada",
-  ];
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  const [campaingStatus, setCampaingStatus] = useState("En proceso");
 
   const navigate = useNavigate();
 
-  const aproveButton = () => {
-    navigate("/operacion-exitosa");
-    setCampaingStatus(mockStatus[4]);
-    scrollToTop();
-  };
+  const valuesMock = campaingDataMock.reduce<CampaingValues>((acc, item) => {
+    if (item.name === "Título") acc.title = item.value;
+    if (item.name === "Marca") acc.brand = item.value;
+    if (item.name === "Público objetivo") acc.targetAudience = item.value;
+    if (item.name === "Archivo de pre emisión (BT)")
+      acc.preEmissionFile = item.value;
+    if (item.name === "Archivo de público objetivo (Inteligencia comercial)")
+      acc.targetFile = item.value;
 
-  const declineButton = () => {
-    navigate("/operacion-rechazada");
-    setCampaingStatus(mockStatus[3]);
-    scrollToTop();
-  };
+    return acc;
+  }, {});
 
   const editButton = () => {
-    navigate("/nueva-campaña");
+    navigate("/nueva-campaña", {
+      state: valuesMock,
+    });
   };
 
   const toggleDropdown = (index) => {
@@ -83,15 +75,39 @@ const Campaings = () => {
       {campaings ? (
         <CampaingContainer>
           <Column>
-            <DataContainer>
+            <DataContainer onClick={() => toggleDropdown(0)}>
               <Text bold={true}>Campaña activa</Text>
               <CampaingCard>
                 <TextCampaing bold={true}>Campaña 1</TextCampaing>
                 <Row>
-                  <Pill onClick={toggleClientList} status={campaingStatus}>
+                  <Pill
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleClientList();
+                    }}
+                    status={campaingStatus}
+                  >
                     {campaingStatus}
                   </Pill>
-                  <Icon src={arrow} alt=">" onClick={() => toggleDropdown(0)} />
+                  {openDropdownIndex === null ? (
+                    <img
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleDropdown(0);
+                      }}
+                      src={arrowDown}
+                      alt="Arrow Down"
+                    />
+                  ) : (
+                    <img
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleDropdown(0);
+                      }}
+                      src={arrowUp}
+                      alt="Arrow Up"
+                    />
+                  )}
                 </Row>
               </CampaingCard>
 
@@ -102,40 +118,11 @@ const Campaings = () => {
                     <Description>{item.value}</Description>
                   </DropItem>
                 ))}
-                <SpaceBetween>
-                  <TextCampaing>Archivo Resultante</TextCampaing>
-                  <Icon onClick={() => {}} src={download} alt="⬇️" />
-                </SpaceBetween>
-                <UploadBox>
-                  <label
-                    htmlFor="file-upload"
-                    style={{
-                      cursor: "pointer",
-                      display: "flex",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Icon src={upload} alt="Subir archivo" />
-                    <TextFile>Adjuntar Log</TextFile>
-                  </label>
-                  <input
-                    id="file-upload"
-                    type="file"
-                    style={{ display: "none" }}
-                    onChange={(e) => {
-                      const files = e.target.files;
-                      if (files && files.length > 0) {
-                        const file = files[0];
-                        console.log("Archivo seleccionado:", file.name);
-                      }
-                    }}
-                  />
-                </UploadBox>
+
                 <BtnContainer>
-                  <Btn secondary={true} onClick={declineButton}>
-                    Registrar observaciones
+                  <Btn bold secondary={true} onClick={editButton}>
+                    Modificar
                   </Btn>
-                  <Btn onClick={editButton}>Finalizar campaña</Btn>
                 </BtnContainer>
               </DropContainer>
             </DataContainer>

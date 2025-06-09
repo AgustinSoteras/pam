@@ -11,19 +11,22 @@ import { arrowDown, arrowUp } from "../../assets";
 
 type Props = {
   options: string[];
+  value?: string;
 };
 
-const Select = ({ options }: Props) => {
+const Select = ({ options, value }: Props) => {
   const [pressButton, setPressButton] = useState(false);
   const [selectOption, setSelectOption] = useState("");
 
   return (
     <ContainerSelect>
       <SelectButton
-        hasContent={selectOption.length > 0 || pressButton}
+        hasContent={
+          selectOption.length > 0 || pressButton || value !== undefined
+        }
         onClick={() => setPressButton(!pressButton)}
       >
-        <SelectOption>{selectOption}</SelectOption>
+        <SelectOption>{value ? value : selectOption}</SelectOption>
         {pressButton ? (
           <img src={arrowDown} alt="Arrow Down" />
         ) : (
