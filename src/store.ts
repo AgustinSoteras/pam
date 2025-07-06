@@ -3,17 +3,23 @@ import { persist } from 'zustand/middleware';
 
 interface User {
   idUsuario: number | string;
+  email: string;
   nombre?: string;
-  clave?: string;
+  rol?: string;
 }
 
 interface Store {
   user: User | null; // Aquí guardamos el objeto de usuario o null si no está logueado
   setUser: (user: User) => void; // Función para actualizar el usuario
   logout: () => void; // Función para hacer logout
+
+  tema: 'light' | 'dark';
+  toggleTema: () => void;
+  setTema: (tema: 'light' | 'dark') => void;
+
 }
 
-const useStore = create(
+const usePersistedStore = create(
   persist<Store>(
     (set, get) => ({
       user: null, // Estado inicial
@@ -24,6 +30,11 @@ const useStore = create(
       logout: () => {
         set({ user: null });
       },
+
+      tema: 'light',
+      toggleTema: () =>
+      set({ tema: get().tema === 'light' ? 'dark' : 'light' }),
+      setTema: (tema) => set({ tema }),
     }),
 
     {
@@ -34,9 +45,9 @@ const useStore = create(
 
 // Recuperar el usuario desde el store persistido
 export function useUserStore() {
-  const { user, setUser } = useStore();
+  const { user, setUser } = usePersistedStore();
 
   return { user, setUser };
 }
 
-export default useStore;
+export default usePersistedStore;
