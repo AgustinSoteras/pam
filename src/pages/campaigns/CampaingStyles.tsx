@@ -45,7 +45,6 @@ export const CampaingContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   min-height: auto;
-  padding-top: 60px;
 `;
 
 export const TextCampaing = styled.p<TextProps>`
@@ -171,4 +170,15 @@ export const UploadBox = styled.div`
   gap: 4px;
   padding: 32px 0 0 0;
   cursor: pointer;
+`;
+
+export const ImgArrow = styled.img`
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+
+    @media (min-width: 1675px) {
+        width: 20px;
+        height: 20px;
+    }
 `;

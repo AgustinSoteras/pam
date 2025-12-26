@@ -118,7 +118,7 @@ export const Text = styled.p<TextProps>`
 export const Label = styled.p<TextProps>`
   color: #353535;
   font-family: Inter;
-  font-size: ${(props) => (props.tiny ? "14px" : "20px")};
+  font-size: ${(props) => (props.tiny ? "14px" : "18px")};
   font-style: normal;
   font-weight: ${(props) => (props.bold ? "700" : "400")};
   line-height: normal;
@@ -150,6 +150,7 @@ export const Form = styled.form`
   flex-direction: column;
   align-items: center;
   height: auto;
+  width: 100%;
 `;
 
 export const ErrorText = styled.p<ErrorProps>`
@@ -165,7 +166,7 @@ export const ErrorText = styled.p<ErrorProps>`
 export const Input = styled.input<InputProps>`
   display: flex;
   height: 20px;
-  padding: 16px;
+  padding: 8px;
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
@@ -176,10 +177,15 @@ export const Input = styled.input<InputProps>`
   background: #fff;
   color: #353535;
   outline: none;
-  font-size: 20px;
+  font-size: 16px;
 
   &:focus {
     box-shadow: none;
+  }
+
+  @media (max-width: 70rem) {
+    font-size: 12px;
+    padding: 6px;
   }
 `;
 

@@ -25,6 +25,7 @@ import {
   Description,
   DropItem,
   BtnContainer,
+  ImgArrow
 } from "./CampaingStyles";
 
 interface CampaingValues {
@@ -61,7 +62,7 @@ const Campaings = () => {
     });
   };
 
-  const toggleDropdown = (index) => {
+  const toggleDropdown = (index: any) => {
     setOpenDropdownIndex((prev) => (prev === index ? null : index));
   };
 
@@ -90,7 +91,7 @@ const Campaings = () => {
                     {campaingStatus}
                   </Pill>
                   {openDropdownIndex === null ? (
-                    <img
+                    <ImgArrow
                       onClick={(e) => {
                         e.stopPropagation();
                         toggleDropdown(0);
@@ -99,7 +100,7 @@ const Campaings = () => {
                       alt="Arrow Down"
                     />
                   ) : (
-                    <img
+                    <ImgArrow
                       onClick={(e) => {
                         e.stopPropagation();
                         toggleDropdown(0);
@@ -137,7 +138,7 @@ const Campaings = () => {
                 <TextCampaing>Campaña 1</TextCampaing>
                 <Row>
                   <Pill status="Generada">Generada</Pill>
-                  <Icon src={arrow} alt=">" onClick={() => toggleDropdown(1)} />
+                  <ImgArrow src={arrow} alt=">" onClick={() => toggleDropdown(1)} />
                 </Row>
               </CampaingCard>
               <DropContainer show={openDropdownIndex === 1}>

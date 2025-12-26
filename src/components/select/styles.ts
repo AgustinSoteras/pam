@@ -14,7 +14,7 @@ export const SelectButton = styled.button<PropsSelectButton>`
   all: unset;
   display: flex;
   height: 20px;
-  padding: 16px;
+  padding: 8px;
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
@@ -23,11 +23,16 @@ export const SelectButton = styled.button<PropsSelectButton>`
   background: #fff;
   color: #353535;
   outline: none;
-  font-size: 20px;
+  font-size: 16px;
   width: 100%;
 
   &:focus {
     box-shadow: none;
+  }
+
+  @media (max-width: 70rem) {
+    font-size: 12px;
+    padding: 6px;
   }
 `;
 

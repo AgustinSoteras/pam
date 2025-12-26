@@ -28,12 +28,12 @@ const Login = () => {
     return invalidEmail && invalidPass;
   };
 
-  const handleEmailChange = (event) => {
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setError(false);
     setEmailValue(event.target.value);
   };
 
-  const handlePassChange = (event) => {
+  const handlePassChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setError(false);
     setPassValue(event.target.value);
   };

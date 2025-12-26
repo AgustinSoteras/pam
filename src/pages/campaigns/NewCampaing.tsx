@@ -36,15 +36,15 @@ const NewCampaing = () => {
   );
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const handleTextInput1Change = (event) => {
+  const handleTextInput1Change = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTextInput1(event.target.value);
   };
 
-  const handleTextInput2Change = (event) => {
+  const handleTextInput2Change = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTextInput2(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
 
@@ -95,7 +95,7 @@ const NewCampaing = () => {
     <>
       <Header />
       <Title margin="0px 0px 32px 0px">Generar campaña</Title>
-      <DataContainer fitContent>
+      <DataContainer>
         <Form onSubmit={handleSubmit}>
           <InputContainer>
             <Label>Título*</Label>
