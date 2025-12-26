@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #F1F1F1;
+  background-color: #f1f1f1;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -17,7 +17,7 @@ body {
   margin: 0px;
 }
 
-.app{
+.app {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,7 +27,7 @@ body {
 /* Estilos del modal de detalle de clientes */
 
 div:where(.swal2-container) .swal2-html-container {
-  text-align: left!important;
+  text-align: left !important;
 }
 
 div:where(.swal2-container) .swal2-html-container p {
@@ -46,8 +46,8 @@ div#swal2-html-container {
 }
 
 div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
-  border-radius: 20px!important;
-  background-color: #00B8E0!important;
+  border-radius: 20px !important;
+  background-color: #00b8e0 !important;
 }
 
 h2#swal2-title {
@@ -58,7 +58,7 @@ h2#swal2-title {
 /* Estilos de la tabla de detalle de clientes */
 
 thead.MuiTableHead-root.css-15wwp11-MuiTableHead-root {
-  background: #DBEEFF;
+  background: #dbeeff;
 }
 
 .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation2.css-1mbunh-MuiPaper-root {
@@ -66,8 +66,8 @@ thead.MuiTableHead-root.css-15wwp11-MuiTableHead-root {
   margin-bottom: 40px;
 }
 
-.css-1mbunh-MuiPaper-root{
-  border-radius: 20px!important;
+.css-1mbunh-MuiPaper-root {
+  border-radius: 20px !important;
 }
 
 td.MuiTableCell-root.MuiTableCell-body.MuiTableCell-alignLeft.MuiTableCell-sizeMedium.css-1ex1afd-MuiTableCell-root {
@@ -82,7 +82,7 @@ td.MuiTableCell-root.MuiTableCell-body.MuiTableCell-alignRight.MuiTableCell-size
   font-size: 14px !important;
 }
 
-.btn-table{
+.btn-table {
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
   display: flex;
   height: auto;
@@ -90,28 +90,28 @@ td.MuiTableCell-root.MuiTableCell-body.MuiTableCell-alignRight.MuiTableCell-size
   justify-content: center;
   align-items: center;
   align-self: stretch;
-  color: #FFFFFF;
+  color: #ffffff;
   border-radius: 20px;
-  background: #00B8E0;
+  background: #00b8e0;
   font-size: 14px;
   border: none;
-  cursor:pointer;
+  cursor: pointer;
 }
 
-.btn-table:hover{
-  background-color: #00B0E0;
+.btn-table:hover {
+  background-color: #00b0e0;
 }
 
-.css-pdct74-MuiTablePagination-selectLabel{
+.css-pdct74-MuiTablePagination-selectLabel {
   color: transparent;
 }
 
-.css-pdct74-MuiTablePagination-selectLabel::after{
+.css-pdct74-MuiTablePagination-selectLabel::after {
   color: rgba(0, 0, 0, 0.87);
-  content: 'Filas por página';
+  content: "Filas por página";
 }
 
-.css-194a1fa-MuiSelect-select-MuiInputBase-input.MuiSelect-select{
+.css-194a1fa-MuiSelect-select-MuiInputBase-input.MuiSelect-select {
   color: transparent;
 }
 
